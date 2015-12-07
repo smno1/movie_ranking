@@ -11,7 +11,7 @@ Category.create(:name=>"action")
 am=Category.first
 am.films.create(:name=>"star war", :description=>"walker war", :released_date=>Date.today, :online=>false)
 f2=am.films.create(:name=>"star war II", :description=>"walker war", :released_date=>Date.today, :online=>true)
-f1=am.films.create(:name=>"star war III", :description=>"walker war", :released_date=>Date.today, :online=>true)
+f3=am.films.create(:name=>"star war III", :description=>"walker war", :released_date=>Date.today, :online=>true)
 
 f2.posters.create(:title=>"casts",:image_url=>"http://www.nbr.co.nz/sites/default/files/story_imgs/Star%20Wars%20poster.jpg")
 f3.posters.create(:title=>"star war",:image_url=>"http://images.amcnetworks.com/ifc.com/wp-content/uploads/2013/04/103012-star-wars111.jpeg")
