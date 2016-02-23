@@ -11,3 +11,4 @@ class Film < ActiveRecord::Base
         :except=>[:created_at, :updated_at,:category_id])
   end
 end
+   

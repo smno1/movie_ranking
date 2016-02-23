@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :users
   namespace :api do
-    namespace :v1 do
+    namespace :v1 , defaults: { format: :json } do
       resources :films do #, only: [:show] 
         member do
           get 'info'
@@ -9,6 +10,9 @@ Rails.application.routes.draw do
           get 'on_screen'
         end
       end
+      resources :users, only: [:show, :create,:update,:destroy]
+      resources :sessions, only: [:create, :destroy]
+      get 'is_user_sign_in'=>'users#is_user_sign_in'
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.
