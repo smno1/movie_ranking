@@ -10,8 +10,10 @@ Rails.application.routes.draw do
           get 'on_screen'
         end
       end
-      resources :users, only: [:show, :create,:update,:destroy]
-      resources :sessions, only: [:create, :destroy]
+      resources :users, only: [:show, :create,:update]
+      resources :sessions, only: [:create]
+      delete 'users/delete'=>'users#destroy'
+      delete 'sessions/delete'=>'sessions#destroy'
       get 'is_user_sign_in'=>'users#is_user_sign_in'
     end
   end
