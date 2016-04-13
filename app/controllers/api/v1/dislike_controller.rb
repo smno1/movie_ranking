@@ -4,17 +4,20 @@ class Api::V1::DislikeController < ApplicationController
     def create
         uid=current_user.id
         dislike= Dislike.where(:user_id=>uid,:film_id=>dislike_params[:film_id]).first
+        like= Like.where(:user_id=>uid,:film_id=>dislike_params[:film_id]).first
+        film = Film.find(params[:film_id])
         if dislike.present?
             if dislike.destroy
-                render json: {dislikes: Dislike.count_dislike_by_film(dislike_params[:film_id]) }, status: 200
+                render json: film.likes_and_dislikes(current_user.id), status: 200
             else
                 render json: {errors: dislike.errors}, status: 422
             end
         else
+            like.destroy if like.present?
             dislike=Dislike.new(dislike_params)
             dislike.user_id=uid
             if dislike.save
-                render json: {dislikes: Dislike.count_dislike_by_film(dislike.film_id)}, status: 201
+                render json: film.likes_and_dislikes(current_user.id), status: 201
             else
                 render json: {errors: dislike.errors}, status: 422
             end
