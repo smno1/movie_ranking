@@ -2,16 +2,20 @@ Rails.application.routes.draw do
   devise_for :users
   namespace :api do
     namespace :v1 , defaults: { format: :json } do
-      resources :films do #, only: [:show] 
-        member do
-          get 'info'
-        end
-        collection do
-          get 'on_screen'
-        end
-      end
+      # resources :films do #, only: [:show] 
+      #   member do
+      #     get 'info'
+      #   end
+      #   collection do
+      #     get 'on_screen'
+      #   end
+      # end
       resources :users, only: [:show, :create,:update]
       resources :sessions, only: [:create]
+      resources :like, only: [:create]
+      resources :dislike, only: [:create]
+      get 'films/on_screen'=>'films#on_screen'
+      get 'likes_and_dislikes'=>'films#likes_and_dislikes'
       delete 'users/delete'=>'users#destroy'
       delete 'sessions/delete'=>'sessions#destroy'
       get 'is_user_sign_in'=>'users#is_user_sign_in'

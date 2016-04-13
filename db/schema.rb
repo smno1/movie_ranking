@@ -11,13 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160304044247) do
+ActiveRecord::Schema.define(version: 20160305090824) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "dislikes", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "film_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "dislikes", ["film_id"], name: "index_dislikes_on_film_id"
+  add_index "dislikes", ["user_id"], name: "index_dislikes_on_user_id"
 
   create_table "films", force: :cascade do |t|
     t.string   "name"
@@ -32,6 +42,16 @@ ActiveRecord::Schema.define(version: 20160304044247) do
   end
 
   add_index "films", ["category_id"], name: "index_films_on_category_id"
+
+  create_table "likes", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "film_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "likes", ["film_id"], name: "index_likes_on_film_id"
+  add_index "likes", ["user_id"], name: "index_likes_on_user_id"
 
   create_table "posters", force: :cascade do |t|
     t.string   "title"
