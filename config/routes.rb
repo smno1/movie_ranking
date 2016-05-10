@@ -14,11 +14,17 @@ Rails.application.routes.draw do
       resources :sessions, only: [:create]
       resources :like, only: [:create]
       resources :dislike, only: [:create]
+      resources :cinemas, only: [:index] do
+        member do
+          get 'current_films'
+        end
+      end
       get 'films/on_screen'=>'films#on_screen'
       get 'likes_and_dislikes'=>'films#likes_and_dislikes'
       delete 'users/delete'=>'users#destroy'
       delete 'sessions/delete'=>'sessions#destroy'
       get 'is_user_sign_in'=>'users#is_user_sign_in'
+      get 'my_liked_films'=>'films#my_liked_films'
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.

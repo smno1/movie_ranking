@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_and_belongs_to_many :liked_films, :class_name=>"Film", :join_table =>:likes
   before_create :generate_authentication_token!
   validates :auth_token, uniqueness: true
   # Include default devise modules. Others available are:

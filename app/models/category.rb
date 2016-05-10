@@ -1,6 +1,5 @@
 class Category < ActiveRecord::Base
-    has_many :films
-  # def serializable_hash(options={})
+  has_and_belongs_to_many :films, :join_table => :films_categories  # def serializable_hash(options={})
   #   options = { 
   #     :include => {:user => {:only => [:email, :id]}, 
   #     :only => [:title, :id]

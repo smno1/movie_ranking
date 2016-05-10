@@ -14,4 +14,8 @@ class Api::V1::FilmsController < Api::V1::BaseController
         film = Film.find(params[:film_id])
         render json: film.likes_and_dislikes(current_user.id)
     end
+
+    def my_liked_films
+        render json: current_user.liked_films
+    end
 end

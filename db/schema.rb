@@ -11,12 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160305090824) do
+ActiveRecord::Schema.define(version: 20160418075513) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "cinema_showings", force: :cascade do |t|
+    t.integer  "cinema_id"
+    t.integer  "film_id"
+    t.date     "on_date"
+    t.date     "off_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "cinema_showings", ["cinema_id"], name: "index_cinema_showings_on_cinema_id"
+  add_index "cinema_showings", ["film_id"], name: "index_cinema_showings_on_film_id"
+
+  create_table "cinemas", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "dislikes", force: :cascade do |t|
@@ -34,14 +53,21 @@ ActiveRecord::Schema.define(version: 20160305090824) do
     t.text     "description"
     t.date     "released_date"
     t.string   "trailer_link"
-    t.integer  "category_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.boolean  "online"
     t.string   "duration"
   end
 
-  add_index "films", ["category_id"], name: "index_films_on_category_id"
+  create_table "films_categories", force: :cascade do |t|
+    t.integer  "film_id"
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "films_categories", ["category_id"], name: "index_films_categories_on_category_id"
+  add_index "films_categories", ["film_id"], name: "index_films_categories_on_film_id"
 
   create_table "likes", force: :cascade do |t|
     t.integer  "user_id"
