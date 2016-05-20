@@ -3,6 +3,6 @@ class Cinema < ActiveRecord::Base
 
     def current_films
         d=Date.today
-        self.showing_films.where("on_date < ? and :off_date> ?", d, d)
+        self.showing_films#.where(":on_date < ? and :off_date> ?", d, d)
     end
 end

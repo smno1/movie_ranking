@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160418075513) do
+ActiveRecord::Schema.define(version: 20160512093332) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -103,9 +103,11 @@ ActiveRecord::Schema.define(version: 20160418075513) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "auth_token",             default: ""
+    t.integer  "cinema_id"
   end
 
   add_index "users", ["auth_token"], name: "index_users_on_auth_token", unique: true
+  add_index "users", ["cinema_id"], name: "index_users_on_cinema_id"
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 

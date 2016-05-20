@@ -1,5 +1,5 @@
 class Api::V1::UsersController < Api::V1::BaseController 
-    before_action :authenticate_with_token!, only: [:update, :destroy,:is_user_sign_in]
+    before_action :authenticate_with_token!, only: [:update, :destroy,:is_user_sign_in, :set_default_cinema]
     respond_to :json
     def show
         respond_with User.find(params[:id])
@@ -30,6 +30,12 @@ class Api::V1::UsersController < Api::V1::BaseController
     end
 
     def is_user_sign_in
+        render json: current_user, status: 200
+    end
+
+    def set_default_cinema
+        user=current_user
+        user.update(:cinema_id=>params[:cinema_id])
         render json: current_user, status: 200
     end
 
