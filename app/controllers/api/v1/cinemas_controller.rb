@@ -9,7 +9,8 @@ class Api::V1::CinemasController < ApplicationController
         cinema_films = Cinema.find(params[:id]).current_films
         puts("====================cinema_films")
         puts(cinema_films)
-        render json: cinema_films
+        render json: cinema_films.to_json(:include=>[{:categories=>{:only=>:name}},{:posters=>{:except=>:updated_at}}], 
+        :except=>[:created_at, :updated_at])
     end
 
 end

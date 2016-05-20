@@ -1,5 +1,5 @@
 class Cinema < ActiveRecord::Base
-    has_and_belongs_to_many :showing_films, -> { select('cinema_showings.*') }, :class_name=>"Film", :join_table =>:cinema_showings
+    has_and_belongs_to_many :showing_films, -> { select('cinema_showings.*, films.name, films.duration, films.released_date, films.trailer_link') }, :class_name=>"Film", :join_table =>:cinema_showings
 
     def current_films
         d=Date.today
