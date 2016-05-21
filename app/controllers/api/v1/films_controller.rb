@@ -16,6 +16,7 @@ class Api::V1::FilmsController < Api::V1::BaseController
     end
 
     def my_liked_films
-        render json: current_user.liked_films
+        render json: current_user.liked_films.to_json(:include=>[{:categories=>{:only=>:name}},{:posters=>{:except=>:updated_at}}], 
+        :except=>[:created_at, :updated_at])
     end
 end
