@@ -43,4 +43,16 @@ Film.find(1).update(:name=>"Star Wars", :description=>"The Force Awakens", onlin
 Poster.create(title: "small size", image_url: "https://farm8.staticflickr.com/7051/27074386061_c545a85883_m.jpg", film_id: 3)
 
 
-#=======test data=============== 
+#=======screen data=============== 
+Cinema.all.each do |c|
+    (1..12).each do |i|
+        c.screens.create(:number=> i)
+    end
+end
+
+
+
+
+
+
+
