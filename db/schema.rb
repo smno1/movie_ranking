@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160521150500) do
+ActiveRecord::Schema.define(version: 20160522122251) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -88,6 +88,26 @@ ActiveRecord::Schema.define(version: 20160521150500) do
   end
 
   add_index "posters", ["film_id"], name: "index_posters_on_film_id"
+
+  create_table "screen_dislikes", force: :cascade do |t|
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "screen_id"
+  end
+
+  add_index "screen_dislikes", ["screen_id"], name: "index_screen_dislikes_on_screen_id"
+  add_index "screen_dislikes", ["user_id"], name: "index_screen_dislikes_on_user_id"
+
+  create_table "screen_likes", force: :cascade do |t|
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "screen_id"
+  end
+
+  add_index "screen_likes", ["screen_id"], name: "index_screen_likes_on_screen_id"
+  add_index "screen_likes", ["user_id"], name: "index_screen_likes_on_user_id"
 
   create_table "screens", force: :cascade do |t|
     t.string   "number"

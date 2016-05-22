@@ -30,13 +30,15 @@ class Api::V1::UsersController < Api::V1::BaseController
     end
 
     def is_user_sign_in
-        render json: current_user, status: 200
+        render json: current_user.to_json(:include=>[{:default_cinema=>{:only=>:name}}, 
+            {:default_cinema_screen=>{:only=>[:number, :id]}}]), status: 200
     end
 
     def set_default_cinema
         user=current_user
         user.update(:cinema_id=>params[:cinema_id])
-        render json: current_user, status: 200
+        render json: current_user.to_json(:include=>[{:default_cinema=>{:only=>:name}}, 
+            {:default_cinema_screen=>{:only=>[:number, :id]}}]), status: 200
     end
 
     private

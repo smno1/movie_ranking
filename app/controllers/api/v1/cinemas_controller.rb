@@ -2,7 +2,7 @@ class Api::V1::CinemasController < ApplicationController
 
     def index
         cs=Cinema.all
-        render json: cs.to_json(:include=>{:screen=>{:only=>:number}},:except=>[:created_at, :updated_at])
+        render json: cs.to_json(:include=>{:screens=>{:only=>[:id,:number]}},:except=>[:created_at, :updated_at])
     end
 
     def current_films

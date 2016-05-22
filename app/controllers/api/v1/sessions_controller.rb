@@ -12,7 +12,8 @@ class Api::V1::SessionsController < Api::V1::BaseController
       sign_in user, store: false
       user.generate_authentication_token!
       user.save
-      render json: user, status: 200
+      render json: user.to_json(:include=>[{:default_cinema=>{:only=>:name}}, 
+              {:default_cinema_screen=>{:only=>[:number, :id]}}]), status: 200
     else
       render json: { errors: "Invalid email or password" }, status: 422
     end
