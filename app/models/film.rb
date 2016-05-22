@@ -10,7 +10,7 @@ class Film < ActiveRecord::Base
   end
 
   def self.search_films film_name
-    Film.where("name like ?", "%#{film_name}%")
+    Film.where("lower(name) like ?", "%#{film_name.downcase}%")
   end
 
   def self.online_films
