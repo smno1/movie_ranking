@@ -10,6 +10,11 @@ class Api::V1::FilmsController < Api::V1::BaseController
         render(json: Film.online_films)
     end
 
+    def search_films
+        render json: Film.search_films(params[:contain_word]).to_json(:include=>[{:categories=>{:only=>:name}},
+            {:posters=>{:except=>:updated_at}}], :except=>[:created_at, :updated_at])
+    end
+
     def likes_and_dislikes
         film = Film.find(params[:film_id])
         render json: film.likes_and_dislikes(current_user.id)

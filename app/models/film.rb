@@ -9,6 +9,10 @@ class Film < ActiveRecord::Base
         :except=>[:created_at, :updated_at])
   end
 
+  def self.search_films film_name
+    Film.where("name like ?", "%#{film_name}%")
+  end
+
   def self.online_films
     Film.where(:online=>true).to_json(:include=>[{:categories=>{:only=>:name}},{:posters=>{:except=>:updated_at}}], 
         :except=>[:created_at, :updated_at])
