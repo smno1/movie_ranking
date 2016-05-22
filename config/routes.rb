@@ -21,7 +21,7 @@ Rails.application.routes.draw do
       end
       get 'cinemas/current_films'
       get 'films/on_screen'=>'films#on_screen'
-      get 'search_films'=>'films#search_films'
+      post 'search_films'=>'films#search_films'
       get 'likes_and_dislikes'=>'films#likes_and_dislikes'
       get 'screen_preference'=>'screen#screen_preference'
       post 'screen_like'=>'screen#like_screen'
