@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160522122251) do
+ActiveRecord::Schema.define(version: 20160522135930) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -94,8 +94,10 @@ ActiveRecord::Schema.define(version: 20160522122251) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "screen_id"
+    t.integer  "film_id"
   end
 
+  add_index "screen_dislikes", ["film_id"], name: "index_screen_dislikes_on_film_id"
   add_index "screen_dislikes", ["screen_id"], name: "index_screen_dislikes_on_screen_id"
   add_index "screen_dislikes", ["user_id"], name: "index_screen_dislikes_on_user_id"
 
@@ -104,8 +106,10 @@ ActiveRecord::Schema.define(version: 20160522122251) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "screen_id"
+    t.integer  "film_id"
   end
 
+  add_index "screen_likes", ["film_id"], name: "index_screen_likes_on_film_id"
   add_index "screen_likes", ["screen_id"], name: "index_screen_likes_on_screen_id"
   add_index "screen_likes", ["user_id"], name: "index_screen_likes_on_user_id"
 

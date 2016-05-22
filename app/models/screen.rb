@@ -1,11 +1,11 @@
 class Screen < ActiveRecord::Base
   belongs_to :cinema
 
-  def likes_and_dislikes uid
-    likes=ScreenLike.where(screen_id: self.id).count
-    dislikes=ScreenDislike.where(screen_id: self.id).count
-    like_by_me=ScreenLike.where(screen_id: self.id, user_id: uid).count
-    dislike_by_me=ScreenDislike.where(screen_id: self.id, user_id: uid).count
+  def likes_and_dislikes(uid,fid)
+    likes=ScreenLike.where(screen_id: self.id,film_id: fid).count
+    dislikes=ScreenDislike.where(screen_id: self.id,film_id: fid).count
+    like_by_me=ScreenLike.where(screen_id: self.id, user_id: uid,film_id: fid).count
+    dislike_by_me=ScreenDislike.where(screen_id: self.id, user_id: uid,film_id: fid).count
     {
       likes: likes,
       dislikes: dislikes,
