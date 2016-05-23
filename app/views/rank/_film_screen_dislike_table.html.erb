@@ -1,0 +1,17 @@
+<table class='display datatable'>
+    <thead>
+        <tr>
+            <th>Screen</th>
+            <th><%= fa_icon "thumbs-o-down" %></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% @flim_screen_dislikes.each do |f| %>
+        <tr>
+            <td><%= f[:screen] %></td>
+            <td><%= f[:dislikes] %></td>
+        </tr>
+        <%end%>
+    </tbody>
+</table>

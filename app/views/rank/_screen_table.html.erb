@@ -1,0 +1,19 @@
+<table class='display datatable'>
+    <thead>
+        <tr>
+            <th>Screen</th>
+            <th><%= fa_icon "thumbs-o-up" %>   Up <b></b></th>
+            <th><%= fa_icon "thumbs-o-down"%>   Down</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% @screens.each do |s| %>
+        <tr>
+            <td><%= s[:screen_name] %></td>
+            <td><%= s[:screen_likes] %></td>
+            <td><%= s[:screen_dislikes] %></td>
+        </tr>
+        <%end%>
+    </tbody>
+</table>

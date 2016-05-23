@@ -1,5 +1,7 @@
 class Screen < ActiveRecord::Base
   belongs_to :cinema
+  has_many :screen_likes
+  has_many :screen_dislikes
 
   def likes_and_dislikes(uid,fid)
     likes=ScreenLike.where(screen_id: self.id,film_id: fid).count

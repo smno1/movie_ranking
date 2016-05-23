@@ -1,0 +1,19 @@
+<table class='display datatable'>
+    <thead>
+        <tr>
+            <th>Movie</th>
+            <th><%= fa_icon "thumbs-o-up" %>   Up <b></b></th>
+            <th><%= fa_icon "thumbs-o-down"%>   Down</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% @films.each do |f| %>
+        <tr>
+            <td><%= link_to f[:film_name], show_flim_screen_preference_path(:film_id=>f[:film_id]) %></td>
+            <td><%= f[:film_likes] %></td>
+            <td><%= f[:film_dislikes] %></td>
+        </tr>
+        <%end%>
+    </tbody>
+</table>

@@ -1,16 +1,23 @@
 source 'https://rubygems.org'
 ruby '2.2.4'
 
+#gem datatable
+gem 'jquery-datatables-rails', '~> 3.3.0'
+
 #authentication gem
 gem 'devise'
 
 #api gem
 gem 'active_model_serializers'
 
+#font
+gem 'font-awesome-rails'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+# gem 'bootstrap-sass'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views

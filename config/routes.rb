@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'rank/show_rank'
+
+  get 'rank/film_screens', as: :show_flim_screen_preference
+
   devise_for :users
   namespace :api do
     namespace :v1 , defaults: { format: :json } do

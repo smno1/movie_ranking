@@ -1,3 +1,15 @@
 // Place all the styles related to the api/v1/base controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.navbar {
+   background-color: rgba(0,0,0,0.6);
+   background: rgba(0,0,0,0.6); 
+   border: 0;
+   margin-bottom: 0;
+}
+.navbar-header span {
+   padding-left: 30px;
+   padding-right: 50px;
+   color: white;
+   font-family: myriad;
+}
