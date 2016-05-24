@@ -49,6 +49,41 @@ Cinema.all.each do |c|
         c.screens.create(:number=> i)
     end
 end
+# ===================add film===========
+Film.create(id: 8,name: "Zootopia", description: "In the animal city of Zootopia, a fast-talking fox who's trying to make it big goes on the run when he's framed for a crime he didn't commit. Zootopia's top cop, a self-righteous rabbit, is hot on his tail, but when both become targets of a conspiracy, they're forced to team up and discover even natural enemies can become best friends.", released_date: "2016-03-17", trailer_link: '<iframe width="560" height="315" src="https://www.youtube.com/embed/yCOPJi0Urq4" frameborder="0" allowfullscreen></iframe>',  online: true, duration: "108 min")
+
+Poster.create(id: 8,title: "small size", image_url: "https://farm8.staticflickr.com/7270/27160643246_e7e25d0462_m.jpg", film_id: 8)
+
+CinemaShowing.create(cinema_id: 1, film_id: 8, on_date: "2016-05-11", off_date: Date.today+3.months);
+CinemaShowing.create(cinema_id: 2, film_id: 8, on_date: "2016-05-11", off_date: Date.today+3.months);
+CinemaShowing.create(cinema_id: 3, film_id: 8, on_date: "2016-05-11", off_date: Date.today+3.months);
+
+
+
+Film.create(id: 9, name: "X-Men: Apocalypse", description: "Following the critically acclaimed global smash hit X-Men: Days of Future Past, director Bryan Singer returns with X-MEN: APOCALYPSE. Since the dawn of civilization, he was worshipped as a god. Apocalypse, the first and most powerful mutant from Marvel's X-Men universe, amassed the powers of many other mutants, becoming immortal and invincible. Upon awakening after thousands of years, he is disillusioned with the world as he finds it and recruits a team of powerful mutants, including a disheartened Magneto (Michael Fassbender), to cleanse mankind and create a new world order, over which he will reign. As the fate of the Earth hangs in the balance, Raven (Jennifer Lawrence) with the help of Professor X (James McAvoy) must lead a team of young X-Men to stop their greatest nemesis and save mankind from complete destruction.", released_date: "2016-05-19", trailer_link: '<iframe width="560" height="315" src="https://www.youtube.com/embed/C0Jz0oYBzBU" frameborder="0" allowfullscreen></iframe>', online: true, duration: "144 min")
+
+Poster.create(id: 9,title: "small size", image_url: "https://farm8.staticflickr.com/7600/26587927654_5744731a5f_m.jpg", film_id: 9)
+
+CinemaShowing.create(cinema_id: 1, film_id: 9, on_date: "2016-05-11", off_date: Date.today+3.months);
+CinemaShowing.create(cinema_id: 3, film_id: 9, on_date: "2016-05-11", off_date: Date.today+3.months);
+
+# =================
+Film.create(id: 10, name: "Teenage Mutant Ninja Turtles: Out Of The Shadow", description: "The Turtles return to save the city from a dangerous threat.", released_date: "2016-06-09", trailer_link: '<iframe width="560" height="315" src="https://www.youtube.com/embed/HeaugHGd1Kw" frameborder="0" allowfullscreen></iframe>', online: true, duration: "144 min")
+
+Poster.create(id: 10,title: "small size", image_url: "https://farm8.staticflickr.com/7127/26589013263_8636b33a5b_m.jpg", film_id: 10)
+
+CinemaShowing.create(cinema_id: 1, film_id: 10, on_date: "2016-05-11", off_date: Date.today+3.months);
+CinemaShowing.create(cinema_id: 2, film_id: 10, on_date: "2016-05-11", off_date: Date.today+3.months);
+CinemaShowing.create(cinema_id: 3, film_id: 10, on_date: "2016-05-11", off_date: Date.today+3.months);
+
+# =================
+Film.create(id: 11, name: "The Angry Birds Movie", description: "The movie takes us to an island populated entirely by happy, flightless birds - or almost entirely. In this paradise, Red (Jason Sudeikis, We're the Millers, Horrible Bosses), a bird with a temper problem, speedy Chuck (Josh Gad in his first animated role since Frozen), and the volatile Bomb (Danny McBride, This is the End, Eastbound and Down) have always been outsiders. But when the island is visited by mysterious green piggies, it's up to these unlikely outcasts to figure out what the pigs are up to. Featuring a hilarious, all-star voice cast that includes Bill Hader (Trainwreck, Inside Out), Maya Rudolph (Bridesmaids), and Peter Dinklage (Game of Thrones), as well as Keegan-Michael Key (Key & Peele), Kate McKinnon (Saturday Night Live, next year's Ghostbusters) and Tony Hale (Veep, Arrested Development).", released_date: "2016-05-12", trailer_link: '<iframe width="560" height="315" src="https://www.youtube.com/embed/1U2DKKqxHgE" frameborder="0" allowfullscreen></iframe>', online: true, duration: "97 min")
+
+Poster.create(id: 11,title: "small size", image_url: "https://farm8.staticflickr.com/7362/27124965021_f6e9213271_m.jpg", film_id: 11)
+
+CinemaShowing.create(cinema_id: 1, film_id: 11, on_date: "2016-05-11", off_date: Date.today+3.months);
+CinemaShowing.create(cinema_id: 2, film_id: 11, on_date: "2016-05-11", off_date: Date.today+3.months);
+CinemaShowing.create(cinema_id: 3, film_id: 11, on_date: "2016-05-11", off_date: Date.today+3.months);
 
 
 

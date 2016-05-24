@@ -6,6 +6,10 @@ class RankController < ApplicationController
     @screens=Screen.all.map do |s|
        {screen_name: s.cinema.name+" screen "+s.number, screen_likes: s.screen_likes.count, screen_dislikes: s.screen_dislikes.count}
     end
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: {film_rank: @films, screen_rank: @screens} }
+    end
 
   end
 
