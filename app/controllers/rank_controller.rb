@@ -25,5 +25,9 @@ class RankController < ApplicationController
         _sc=Screen.find(k)
         {screen: _sc.cinema.name+" screen "+_sc.number, dislikes: v}
     end
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: {screen_likes: @flim_screen_likes, screen_dislikes: @flim_screen_dislikes} }
+    end
   end
 end

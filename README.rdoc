@@ -1,28 +1,31 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Discription
 
-Things you may want to cover:
+# Restful API:
+# Needed Authenticated:
 
-* Ruby version
+# Objective
+instantly give a feedback to the movie also the cinema 
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+resources :users, only: [:show, :create,:update]
+resources :like, only: [:create]
+resources :dislike, only: [:create]
+get 'likes_and_dislikes'=>'films#likes_and_dislikes'
+get 'is_user_sign_in'=>'users#is_user_sign_in'
+delete 'users/delete'=>'users#destroy'
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+# Not need authenticate
+get 'films/on_screen'=>'films#on_screen'
+delete 'sessions/delete'=>'sessions#destroy'
+resources :sessions, only: [:create]
+
+# Authentication Implementation:
+After sign in or sign up as a user, the system will automated generate and assign a token to the user as its session token, which will be stored in the header of every request as a certification for authenticate the user identity. After user signout the token will be updated and assigned to the users when next time they sign in.
+
+
+# Like and Dislike
+User can give a thumbup or thumbdown to any movie, but can not give both thumbup and thumbdown to the same movie.
+
+
